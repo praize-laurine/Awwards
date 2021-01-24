@@ -7,6 +7,8 @@ from django.conf import settings
 urlpatterns=[
     path('',views.index,name = 'index'),
     path('accounts/signUp/', views.signUp, name='signUp'),
+    path('userProfile/', views.userProfile,name = 'userProfile'),
+    path('update_profile/', user_views.update_profile,name = 'update_profile'),
 ]
 
 if settings.DEBUG:
