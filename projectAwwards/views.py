@@ -46,7 +46,7 @@ def index(request):
     return render(request, 'index.html', {"json_projects": json_projects})                   
 
 @login_required(login_url='/accounts/login/')
-def profile(request):
+def userProfile(request):
     if request.method == 'POST':
         user_form = UpdateUserForm(request.POST, instance = request.user)
         prof_form = UserProfileUpdateForm(request.POST,request.FILES, instance = request.user.profile)
@@ -55,7 +55,7 @@ def profile(request):
             user_form.save()
             prof_form.save()
             message.success(request, f'Your account has been updated successfully!')
-            return redirect('profile')
+            return redirect('userProfile')
 
     else:
         user_form = UpdateUserForm(instance = request.user)
