@@ -21,7 +21,26 @@ def signUp(request):
     else:
         form = SignUpForm()
     return redirect(request,'registration/signUp_form.html', {'form':form})  
-    
-              
+
+def index(request):
+    project = Project.all_projects()
+    json_projects = []
+    for project in project:
+        picture = profile.objects.filter(user=project.user.id).first()
+        if picture:
+            picture = picture.profile_pic.url
+        else:
+            picture = ''
+        obj = dict(
+            title = project.title,
+            image = project.image,
+            url_link = project.url_link,
+            description = project.description,
+            avatar = picture,
+            date_created = project.date_created,
+            author = project.user.username
+        )   
+        json_projects.append(obj) 
+    return render(request, 'index.html', {"json_projects": json_projects})                   
 
 
