@@ -4,6 +4,7 @@ from django.contrib.auth import authenticate, login, logout
 from django.http import HttpResponse
 from .forms import SignUpForm
 from django.contrib.auth import authenticate, login, logout
+from .models import  Project
 
 
 
@@ -22,6 +23,7 @@ def signUp(request):
         form = SignUpForm()
     return redirect(request,'registration/signUp_form.html', {'form':form})  
 
+@login_required(login_url='/accounts/login/')
 def index(request):
     project = Project.all_projects()
     json_projects = []
