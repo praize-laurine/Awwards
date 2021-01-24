@@ -4,8 +4,8 @@ from django.contrib.auth import authenticate, login, logout
 from django.http import HttpResponse
 from .forms import SignUpForm
 from django.contrib.auth import authenticate, login, logout
-from .models import  Project
-
+from .models import  Project, Profile
+import json
 
 
 # Create your views fhere.
@@ -45,4 +45,47 @@ def index(request):
         json_projects.append(obj) 
     return render(request, 'index.html', {"json_projects": json_projects})                   
 
+@login_required(login_url='/accounts/login/')
+def profile(request):
+    if request.method == 'POST':
+        user_form = UpdateUserForm(request.POST, instance = request.user)
+        prof_form = UserProfileUpdateForm(request.POST,request.FILES, instance = request.user.profile)
+
+        if user_form.is_valid and prof_form.is_valid():
+            user_form.save()
+            prof_form.save()
+            message.success(request, f'Your account has been updated successfully!')
+            return redirect('profile')
+
+    else:
+        user_form = UpdateUserForm(instance = request.user)
+        prof_form = UserProfileUpdateForm(instance = request.user.profile)
+    context = {
+        'user_form': user_form,
+        'prof_form': prof_form
+    }     
+    return render(request, 'userProfile.html', context) 
+
+@login_required(login_url='/accounts/login/')
+def update_profile(request):
+    if request.method == 'POST':
+        user_form = UpdateUserForm(request.POST, instance=request.user)
+        prof_form = UserProfileUpdateForm(request.POST, request.FILES, instance=request.user)
+
+        if user_form.is_valid():
+            user_form.save()
+            prof_form.save()
+
+            return redirect('index')
+
+    else:
+        user_form = UpdateUserForm(instance = request.user)
+        prof_form = UserProfileUpdateForm(instance = request.user)
+
+        context = {
+            'user_form' : user_form,
+            'prof_form' : prof_form
+        }        
+
+    return render(request, 'update_profile.html', context)    
 

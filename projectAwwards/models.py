@@ -1,7 +1,9 @@
 from django.db import models
 from django.contrib.auth.models import User
 from tinymce.models import HTMLField
-
+from django.dispatch import receiver
+from django.db.models.signals import post_save
+import datetime as dt
 
 # Create your models here.
 class Project(models.Model):
@@ -9,6 +11,7 @@ class Project(models.Model):
     image = models.ImageField(upload_to = 'index/', blank=True)
     url_link = models.URLField(max_length=200)
     description = models.TextField(max_length=300)
+    technologies = models.CharField(max_length=200, blank=True)
     user = models.ForeignKey(User, on_delete=models.CASCADE, default='', null=True ,related_name='author')
     date_craeted= models.DateField(auto_now_add=True )
 
@@ -27,14 +30,11 @@ class Project(models.Model):
         projects = cls.objects.filter(title__icontains=search_term)
         return projects
 
-
-     
-
     def __str__(self):
-        return self.title
+        return f'{self.title}'
 
 class Profile(models.Model):
-    profile_pic = models.ImageField(upload_to='profile/', blank ='true',default='default.png'))
+    profile_pic = models.ImageField(upload_to='profile/', blank ='true',default='default.png')
     bio = models.TextField()
     user = models.OneToOneField(User, on_delete = models.CASCADE)
     name = models.CharField(blank=True, max_length=120)
