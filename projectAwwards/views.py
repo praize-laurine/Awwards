@@ -1,4 +1,11 @@
 from django.shortcuts import render, redirect
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth import authenticate, login, logout
+from django.http import HttpResponse
+from .forms import SignUpForm
+from django.contrib.auth import authenticate, login, logout
+
+
 
 # Create your views fhere.
 def signUp(request):
@@ -13,6 +20,8 @@ def signUp(request):
             return redirect('index')
     else:
         form = SignUpForm()
-    return redirect(request,'registration/signUp_form.html', {'form':form})            
+    return redirect(request,'registration/signUp_form.html', {'form':form})  
+    
+              
 
 
