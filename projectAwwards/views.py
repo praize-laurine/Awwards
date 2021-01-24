@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 
 # Create your views fhere.
-def signup(request):
+def signUp(request):
     if request.method == 'POST':
         form = SignUpForm(request.POST)
         if form.is_valid():
@@ -13,6 +13,6 @@ def signup(request):
             return redirect('index')
     else:
         form = SignUpForm()
-    return redirect(request,'registration/signUp_form.html' {'form':form})            
+    return redirect(request,'registration/signUp_form.html', {'form':form})            
 
 
