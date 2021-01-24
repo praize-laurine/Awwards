@@ -9,6 +9,8 @@ urlpatterns=[
     path('accounts/signUp/', views.signUp, name='signUp'),
     path('userProfile/', views.userProfile,name = 'userProfile'),
     path('update_profile/', user_views.update_profile,name = 'update_profile'),
+    path('search/', views.search_results, name = 'search_results'),
+
 ]
 
 if settings.DEBUG:
