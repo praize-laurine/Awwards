@@ -12,7 +12,7 @@ class Project(models.Model):
     date_craeted= models.DateField(auto_now_add=True )
 
     
-     def save_project(self):
+    def save_project(self):
         self.save()
 
     @classmethod

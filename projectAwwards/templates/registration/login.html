@@ -1,7 +1,7 @@
 {%extends "registration/base.html"%}
-{% load bootstrap3 %}
+{% load bootstrap4 %}
 {% block content %}
-<div class="body">
+<div class="body" style="background-image: url(https://chawwards.herokuapp.com/static/images/download.jpeg); background-position: center; background-size: cover; background-repeat: no-repeat; overflow-x: hidden; height: 100vh;">
     <div class="container">
 
     {% if form.errors %}
@@ -10,7 +10,7 @@
 
     <div class="card container" style="width: 20rem; margin-top:70px;">
       <div class="card-body">
-        <h3 class="text-center" style="font-family: 'Lobster Two', cursive;">Awards</h3>
+        <h3 class="text-center" style="font-family: 'Yeon Sung', cursive;">Awwards</h3>
       </div>
 
       <form action="/accounts/login/" method="POST">
