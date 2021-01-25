@@ -102,3 +102,21 @@ def search_results(request):
 
         return render(request,'search.html',{'message':message})    
 
+
+@login_required(login_url='/accounts/login/')
+def post_project(request):
+    current_user = request.user
+    if request.method == 'POST':
+        form = PostProjectForm(request.POST, request.FILES)
+        if form.is_valid():
+            image = form.save(commit=False)
+            image.user = current_user
+           
+            image.save()
+            
+        return redirect('index')
+
+    else:
+        form = PostProjectForm()
+    return render(request, 'post_project.html', {"form": form})
+    
