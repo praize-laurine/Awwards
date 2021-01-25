@@ -23,4 +23,9 @@ class UpdateUserForm(forms.ModelForm):
 
     class Meta:
         model = User
-        fields = ['username','email']              
+        fields = ['username','email']     
+
+class PostProjectForm(forms.ModelForm):
+    class Meta:
+        model = Project
+        exclude = ['user',]                 

@@ -28,7 +28,7 @@ def index(request):
     project = Project.all_projects()
     json_projects = []
     for project in project:
-        picture = profile.objects.filter(user=project.user.id).first()
+        picture = Profile.objects.filter(user=project.user.id).first()
         if picture:
             picture = picture.profile_pic.url
         else:

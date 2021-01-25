@@ -7,26 +7,28 @@
 
        <div class="collapse navbar-collapse" id="navbarSupportedContent">
            <div class="row">
-               <div class="col-sm-5">
-                   <form class="navbar-form " role="search" action="{% url 'search_results' %}">
-                       <div class="input-group">
-                           <div class="input-group-btn">
-                            <i class="fa fa-bars fa-2x" aria-hidden="true" ></i><button class="btn btn-default" type="submit"><i class="fas fa-search"></i></i></button>
-                           </div>
-                           <input type="text" class="form-control form-control-sm ml-3 w-75" placeholder="Search"
-                           name="project"> 
-                        </div>
-                   </form>
-               </div>
+               
 
                <div class="col-sm-3">
                 <a class="navbar-brand" href="{% url 'index' %}" style="font-family: 'Yeseva One', cursive; font-size:25px;"><b>Awwards</b></a>
                </div>
 
+               <div class="col-sm-5">
+                <form class="navbar-form " role="search" action="{% url 'search_results' %}">
+                    <div class="input-group">
+                        <div class="input-group-btn">
+                         <i class="fa fa-bars fa-2x" aria-hidden="true" ></i><button class="btn btn-default" type="submit"><i class="fas fa-search"></i></i></button>
+                        </div>
+                        <input type="text" class="form-control form-control-sm ml-3 w-75" placeholder="Search"
+                        name="project"> 
+                     </div>
+                </form>
+            </div>
+
                <div class="col-sm-4">
                    <ul class="navbar-nav">
                        <li lass="nav-item active">
-                        <a class="nav-link" href="{%url 'new_project'%}"><i class="fas fa-folder-plus"></i>Post project<span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="{%url 'post_project'%}"><i class="fas fa-folder-plus"></i>Post project<span class="sr-only">(current)</span></a>
                        </li>
 
                        <li class="dropdown mt-3">
@@ -43,7 +45,7 @@
                            </a>
 
                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="{%url 'profile'%}">Profile</a>
+                            <a class="dropdown-item" href="{%url 'userProfile'%}">Profile</a>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="/accounts/logout">Logout</a>
                           </div>

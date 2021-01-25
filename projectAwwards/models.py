@@ -13,7 +13,7 @@ class Project(models.Model):
     description = models.TextField(max_length=300)
     technologies = models.CharField(max_length=200, blank=True)
     user = models.ForeignKey(User, on_delete=models.CASCADE, default='', null=True ,related_name='author')
-    date_craeted= models.DateField(auto_now_add=True )
+    date_created= models.DateField(auto_now_add=True )
 
     
     def save_project(self):
