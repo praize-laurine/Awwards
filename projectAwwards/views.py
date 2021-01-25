@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate, login, logout
 from django.http import HttpResponse
-from .forms import SignUpForm
+from .forms import *
 from django.contrib.auth import authenticate, login, logout
 from .models import  Project, Profile
 import json

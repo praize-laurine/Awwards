@@ -40,7 +40,7 @@ INSTALLED_APPS = [
     'projectAwwards',
     'bootstrap4',
     'tinymce',
-    # 'crispy_forms',
+    'crispy_forms',
 
 ]
 
