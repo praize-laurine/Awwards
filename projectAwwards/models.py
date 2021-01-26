@@ -56,4 +56,12 @@ def create_user_profile(sender, instance, created, **kwargs):
 
 @receiver(post_save, sender=User)
 def save_user_profile(sender, instance, **kwargs):
-    instance.profile.save()           
+    instance.profile.save()       
+
+class ProjectMerch(models.Model):
+    user = models.CharField(max_length=40)
+    description = models.TextField()
+    url_link = models.DecimalField(decimal_places=2, max_digits=20)
+    bio = models.TextField()    
+    profile_pic = models.ImageField(upload_to='profile/', blank ='true',default='default.png')
+    

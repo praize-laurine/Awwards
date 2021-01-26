@@ -1,13 +1,10 @@
 {% extends 'base.html' %}
 {%block content%}
 {{ block.super}}
-
+{% load ratings %}
 <div>
-
   <div class="container-fluid"
     style="background-image: url('https://images.unsplash.com/photo-1471293413508-2cb95f2d2e9a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60');  background-repeat: no-repeat; background-size: cover; height: 100vh;  background-position: center; text-align:center; overflow-x:hidden;">
-    
-
     <h1 style="  font-size:50px; margin-top:60px; color:aquamarine;     font-family: 'Gabriela', serif;">My Gallery
     </h1>
     <p style="color: beige; font-family: 'Gabriela', serif;"><b> By: </b>Laurine Praise</p>
@@ -17,8 +14,6 @@
     <!-- <button type="button" class="btn btn-info btn-rounded">Info</button> -->
     <a href="https://praisegallery.herokuapp.com/" class="btn btn-info btn-rounded" target="_blank">view site</a>
   </div>
-
-
   <br><br>
   <div class="container-fluid">
     <div class="row">
@@ -32,33 +27,23 @@
                 <div class="mask rgba-white-slight"></div>
               </a>
             </div>
-
             <div class="card-body">
               <h3 style="font-family: 'Cuprum', sans-serif;">{{project.title}}</h3>
-
               <a href="{{project.url_link}}" target="_blank">view site</a>
-
               <p class="card-text" style="    font-family: 'Gabriela', serif;"><b>project description:</b>{{project.description}}</p>
-            
               <hr>
               <span><a href="profile"> <img style="border-radius: 50%; width:30px; height:30px; "
                     src="{{project.avatar }}" alt="image"></a>By
                 <b>{{project.author}}</b></span>
-
               <p class="card-meta float-right">{{project.date_craeted}}</p>
-
             </div>
           </div>
         </div>
-
-
       </div>
       {% endfor %}
-
     </div>
-
   </div>
-
 </div>
-
 {%endblock%}
+
+

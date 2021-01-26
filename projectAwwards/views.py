@@ -6,7 +6,10 @@ from .forms import *
 from django.contrib.auth import authenticate, login, logout
 from .models import  Project, Profile
 import json
-
+from rest_framework.response import Response
+from rest_framework.views import APIView
+from .models import  ProjectMerch
+from .serializer import ProjectSerializer
 
 # Create your views fhere.
 def signUp(request):
@@ -21,7 +24,7 @@ def signUp(request):
             return redirect('index')
     else:
         form = SignUpForm()
-    return redirect(request,'registration/signUp_form.html', {'form':form})  
+    return render (request,'registration/signUp_form.html', {'form':form})  
 
 @login_required(login_url='/accounts/login/')
 def index(request):
@@ -119,4 +122,10 @@ def post_project(request):
     else:
         form = PostProjectForm()
     return render(request, 'post_project.html', {"form": form})
+
+class MerchList(APIView):
+    def get(self, request, format=None):
+        all_merch = ProjectMerch.objects.all()
+        serializers = ProjectSerializer(all_merch, many=True)
+        return Response(serializers.data)    
     
