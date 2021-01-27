@@ -3,6 +3,7 @@
 ### Author: [Laurine Praise](https://github.com/preyze-laurine)
 
 ## Description
+This is a django application that allows the user to see other people's project and be able to rate them.
 
 ## Setup and installations
 * Fork the data onto your own personal repository.
