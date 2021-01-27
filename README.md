@@ -74,8 +74,8 @@ python3.6 manage.py migrate
 #### Run the app
 ```bash
 python3.6 manage.py runserver
-
-Technologies
+```
+## Technologies
 - [Python3.6](https://docs.python.org/3/)
 -  Django 3.1.5
 - Postgresql 
@@ -83,5 +83,5 @@ Technologies
 - HTML
 - CSS
 
-Contact Details
+## Contact Details
 If you have any request or questions please email me at preyzelaurine@gmail.com
