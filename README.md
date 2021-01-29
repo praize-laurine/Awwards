@@ -22,7 +22,7 @@ This is a django application that allows the user to see other people's project 
 
 #### Clone the Repo and rename it to suit your needs.
 ```bash
-git clone https://github.com/PerisOduol618/Awards.git
+git clone https://github.com/praize-laurine/Awards.git
 ```
 #### Initialize git and add the remote repository
 ```bash
